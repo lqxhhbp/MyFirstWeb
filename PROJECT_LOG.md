@@ -21,6 +21,7 @@
 | 项目类型 | Vue 3 单页静态网站 |
 | 当前版本 | `0.1.0` |
 | 当前阶段 | 可运行骨架 |
+| 初始源码提交 | `45262b3df224a301c0e049818eb5a04aba24f358` |
 | 部署状态 | 尚未部署到公网平台 |
 | 默认分支 | `main` |
 | 主要语言 | TypeScript、Vue 单文件组件、CSS |
@@ -117,6 +118,19 @@
 - [完成] 保留远端仓库历史，以当前完整项目替换初始化占位 README。
 - [完成] 将 Vue 源码、依赖锁定文件、质量配置、部署研究和项目日志发布到 GitHub。
 - [完成] 将仓库根目录作为网站项目根目录，便于 Cloudflare Pages 直接连接部署。
+- [已验证] 初始源码提交为
+  [`45262b3df224a301c0e049818eb5a04aba24f358`](https://github.com/lqxhhbp/MyFirstWeb/commit/45262b3df224a301c0e049818eb5a04aba24f358)。
+- [已验证] 通过 GitHub 接口重新读取 `PROJECT_LOG.md` 和 `src/content/site.ts`，远端内容与本地一致。
+- [已验证] 本地 `main` 跟踪 `origin/main`，工作区干净。
+
+### 2026-11-22：首次推送连接问题与处理
+
+- [记录] 直接执行 Git fetch/push 时，当前网络环境无法连接 `github.com:443`。
+- [记录] 检测到 Clash Plus 的本地混合代理监听在 `127.0.0.1:7877`。
+- [完成] 仅在 Git 推送命令中临时设置 `HTTP_PROXY` 和 `HTTPS_PROXY`，没有修改系统全局代理。
+- [记录] 全局 `helper-selector` 被继承后会在选择窗口阻塞；该仓库已改为项目级
+  Git Credential Manager 配置。
+- [已验证] 通过本地代理和 Git Credential Manager 成功推送，后续无需再选择凭据助手。
 
 ## 关键决策
 
@@ -252,6 +266,9 @@ git config user.email "你的 GitHub 邮箱"
 | 版本 | 日期 | 状态 | 说明 |
 | --- | --- | --- | --- |
 | `0.1.0` | 2026-11-22 | 可运行骨架 | 完成 Vue 3 页面、响应式样式、部署研究和 GitHub 初始化发布 |
+
+初始内容提交：
+[`45262b3df224a301c0e049818eb5a04aba24f358`](https://github.com/lqxhhbp/MyFirstWeb/commit/45262b3df224a301c0e049818eb5a04aba24f358)
 
 ## 后续日志模板
 
