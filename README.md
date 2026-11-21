@@ -3,8 +3,10 @@
 一个使用 Vue 3、TypeScript、Vue Router 和 Vite 搭建的个人网站骨架。它不需要自己的服务器：
 构建后会生成一组静态文件，可以交给静态托管平台发布。
 
-当前版本为 `0.1.0`，已完成可运行骨架，尚未部署。GitHub 仓库：
-<https://github.com/lqxhhbp/MyFirstWeb>。
+当前版本为 `0.1.0`，已完成可运行骨架并部署到 GitHub Pages。
+
+- 网站入口：<https://lqxhhbp.github.io/MyFirstWeb/>
+- GitHub 仓库：<https://github.com/lqxhhbp/MyFirstWeb>
 
 - [项目日志](./PROJECT_LOG.md)：需求、决策、验证结果、已知限制和后续维护记录。
 - [部署方案](./DEPLOYMENT_OPTIONS.md)：低成本平台比较、中国大陆访问风险和上线计划。

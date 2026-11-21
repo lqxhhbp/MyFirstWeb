@@ -18,11 +18,12 @@
 | --- | --- |
 | 项目名称 | MyFirstWeb |
 | GitHub 仓库 | <https://github.com/lqxhhbp/MyFirstWeb> |
+| 公网入口 | <https://lqxhhbp.github.io/MyFirstWeb/> |
 | 项目类型 | Vue 3 单页静态网站 |
 | 当前版本 | `0.1.0` |
-| 当前阶段 | 可运行骨架 |
+| 当前阶段 | GitHub Pages 已上线，等待替换个人资料 |
 | 初始源码提交 | `45262b3df224a301c0e049818eb5a04aba24f358` |
-| 部署状态 | 尚未部署到公网平台 |
+| 部署状态 | GitHub Pages 部署成功 |
 | 默认分支 | `main` |
 | 主要语言 | TypeScript、Vue 单文件组件、CSS |
 | Node.js 要求 | `^22.18.0 || >=24.12.0` |
@@ -43,6 +44,8 @@
 - [完成] Cloudflare Pages / Netlify 可用的 `_redirects` SPA 回退。
 - [完成] 中文本地开发、内容修改和部署说明。
 - [完成] 官方资料核验后的低成本和国内访问方案比较。
+- [完成] GitHub Actions 自动构建并部署到 GitHub Pages。
+- [完成] 为项目 Pages 地址配置 Vite 子路径和 history 路由回退。
 
 ## 技术栈
 
@@ -132,6 +135,22 @@
   Git Credential Manager 配置。
 - [已验证] 通过本地代理和 Git Credential Manager 成功推送，后续无需再选择凭据助手。
 
+### 2026-11-22：GitHub Pages 首次上线
+
+- [完成] 增加 `.github/workflows/deploy-pages.yml`，在 `main` 更新后自动构建 `dist/` 并部署。
+- [完成] Vite 支持通过 `VITE_BASE_PATH` 使用 GitHub Pages 项目子路径。
+- [完成] 构建后复制 `index.html` 为 `404.html`，为 Vue history 路由提供回退入口。
+- [决策] 当前阶段先用 GitHub Pages 提供即时可访问的验收入口；Cloudflare Pages 仍作为后续
+  正式发布和自定义域名的首选方案。
+- [记录] 首次 push 触发的部署失败：仓库尚未启用 Pages，Actions 临时令牌无法创建 Pages 站点。
+- [完成] 使用仓库管理员已存储的授权启用 GitHub Pages，并重新触发部署工作流。
+- [已验证] 工作流运行 `44926853775` 的 build 和 deploy 均成功。
+- [已验证] 入口 `https://lqxhhbp.github.io/MyFirstWeb/` 返回 HTTP 200。
+- [已验证] 线上页面标题为“你的名字 · 个人网站”，入口 HTML 已引用
+  `/MyFirstWeb/assets/` 下的构建资源。
+- [待处理] `/projects` 和 `/about` 直接访问会由 GitHub Pages 返回 404 状态，但会加载
+  `404.html` 中的 Vue 应用入口；正式对外发布前可切换到 Cloudflare Pages 获得标准 SPA rewrite。
+
 ## 关键决策
 
 ### D-001：使用 Vue 官方脚手架
@@ -201,7 +220,8 @@ npm run build
 
 ## 已知限制
 
-- [待处理] 网站尚未部署，目前没有公网访问地址。
+- [风险] GitHub Pages 项目站当前没有原生 SPA rewrite，直接访问子页面会返回 HTTP 404 状态，
+  但页面内容仍可通过 `404.html` 回退加载。
 - [待处理] 还没有购买独立域名，也没有配置 DNS。
 - [待处理] 中国大陆访问质量尚未在目标运营商和目标地区实测。
 - [待处理] 静态站不能安全保存服务端密钥，也不能直接提供用户登录、数据库写入或支付能力。
@@ -212,7 +232,20 @@ npm run build
 
 ## 部署状态与待办
 
-### Cloudflare Pages 建议配置
+### GitHub Pages 当前配置
+
+| 配置项 | 值 |
+| --- | --- |
+| 公网入口 | <https://lqxhhbp.github.io/MyFirstWeb/> |
+| 部署分支 | `main` |
+| 构建方式 | GitHub Actions |
+| 工作流 | `.github/workflows/deploy-pages.yml` |
+| Node.js | `22` |
+| 构建命令 | `npm run build` |
+| 产物目录 | `dist/` |
+| SPA 回退 | 构建后将 `index.html` 复制为 `404.html` |
+
+### Cloudflare Pages 后续建议配置
 
 | 配置项 | 值 |
 | --- | --- |
@@ -228,8 +261,8 @@ npm run build
 
 - [待处理] 替换所有占位个人资料。
 - [待处理] 在本地再次执行 `npm run lint` 和 `npm run build`。
-- [待处理] 在 Cloudflare Pages 连接 GitHub 仓库并发起首次部署。
-- [待处理] 检查首页、项目页、关于页、直接刷新子页面和 404。
+- [待处理] 决定是否迁移到 Cloudflare Pages 以获得标准 SPA rewrite。
+- [待处理] 迁移后检查首页、项目页、关于页、直接刷新子页面和 404。
 - [待处理] 在 Wi-Fi、手机流量及非同网络设备上测试访问。
 - [待处理] 根据访问结果决定是否购买域名或切换国内对象存储。
 
@@ -265,7 +298,7 @@ git config user.email "你的 GitHub 邮箱"
 
 | 版本 | 日期 | 状态 | 说明 |
 | --- | --- | --- | --- |
-| `0.1.0` | 2026-11-22 | 可运行骨架 | 完成 Vue 3 页面、响应式样式、部署研究和 GitHub 初始化发布 |
+| `0.1.0` | 2026-11-22 | GitHub Pages 已上线 | 完成 Vue 3 页面、响应式样式、部署研究、GitHub 初始化发布和自动部署 |
 
 初始内容提交：
 [`45262b3df224a301c0e049818eb5a04aba24f358`](https://github.com/lqxhhbp/MyFirstWeb/commit/45262b3df224a301c0e049818eb5a04aba24f358)
