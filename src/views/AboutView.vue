@@ -36,8 +36,15 @@ const storyParagraphs = [
           </div>
           <div>
             <dt>联系</dt>
-            <dd>
-              <a class="inline-link" :href="`mailto:${site.email}`">{{ site.email }}</a>
+            <dd class="fact-emails">
+              <a
+                v-for="email in site.emails"
+                :key="email"
+                class="inline-link"
+                :href="`mailto:${email}`"
+              >
+                {{ email }}
+              </a>
             </dd>
           </div>
         </dl>
@@ -66,7 +73,16 @@ const storyParagraphs = [
       <p class="eyebrow">Get in touch</p>
       <div class="contact-panel__row">
         <h2 id="contact-title">想一起做点有趣的事？</h2>
-        <a class="button button--light" :href="`mailto:${site.email}`">发一封邮件</a>
+        <div class="contact-emails">
+          <a
+            v-for="email in site.emails"
+            :key="email"
+            class="button button--light"
+            :href="`mailto:${email}`"
+          >
+            {{ email }}
+          </a>
+        </div>
       </div>
     </section>
   </div>

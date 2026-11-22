@@ -9,7 +9,9 @@ const currentYear = new Date().getFullYear()
     <div class="site-footer__inner">
       <p>© {{ currentYear }} {{ site.name }}</p>
       <p>用 Vue 3 搭建 · 保持好奇</p>
-      <a :href="`mailto:${site.email}`">{{ site.email }}</a>
+      <div class="footer-emails">
+        <a v-for="email in site.emails" :key="email" :href="`mailto:${email}`">{{ email }}</a>
+      </div>
     </div>
   </footer>
 </template>
@@ -34,6 +36,13 @@ const currentYear = new Date().getFullYear()
   color: var(--color-accent-dark);
 }
 
+.footer-emails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px 14px;
+}
+
 @media (max-width: 700px) {
   .site-footer {
     width: min(100% - 28px, var(--content-width));
@@ -43,6 +52,11 @@ const currentYear = new Date().getFullYear()
     align-items: flex-start;
     flex-direction: column;
     gap: 7px;
+  }
+
+  .footer-emails {
+    flex-direction: column;
+    justify-content: flex-start;
   }
 }
 </style>

@@ -26,6 +26,16 @@ const projectsIntro =
           </div>
           <h2>{{ project.title }}</h2>
           <p>{{ project.description }}</p>
+          <a
+            v-if="project.link"
+            class="project-card__link"
+            :href="project.link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub 仓库
+            <span aria-hidden="true">↗</span>
+          </a>
           <ul class="tag-list" aria-label="项目标签">
             <li v-for="tag in project.tags" :key="tag">{{ tag }}</li>
           </ul>

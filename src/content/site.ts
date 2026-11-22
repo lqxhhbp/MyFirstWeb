@@ -1,20 +1,30 @@
+export interface Project {
+  title: string
+  description: string
+  tags: string[]
+  status: string
+  link?: string
+}
+
 export const site = {
-  name: '你的名字',
-  initials: '你',
+  name: '两千响豪华鞭炮',
+  initials: '两',
   role: '独立开发者 / 创作者',
   headline: '把好奇心，做成真正可用的网页。',
   intro:
-    '你好，我是「你的名字」。这里是我的数字客厅，用来展示做过的事情、正在探索的方向，也记录那些值得分享的片段。',
-  email: 'hello@example.com',
+    '你好，我是「两千响豪华鞭炮」。这里是我的数字客厅，用来展示做过的事情、正在探索的方向，也记录那些值得分享的片段。',
+  emails: ['13560620383@163.com', 'cakt310783137@qq.com'],
   location: '中国 · 可远程协作',
   availability: '欢迎交流新想法和合作机会',
   currentFocus: ['用 Vue 3 打磨个人网站', '整理一套长期可用的作品档案', '把一个想法做成小产品'],
   projects: [
     {
-      title: '作品集主页',
-      description: '重新梳理个人介绍与作品结构，让第一次访问的人快速了解我在做什么。',
-      tags: ['Vue 3', 'TypeScript', '界面设计'],
-      status: '持续完善',
+      title: '校园快递点导航与空闲度查询平台',
+      description:
+        '基于 Spring Boot 3、Vue 3 和百度地图 GL API 的毕业设计，面向校园快递场景打通包裹到站、学生查件、地图导航、到场取件、拥挤度反馈和统计分析的完整业务闭环。',
+      tags: ['Spring Boot 3', 'Vue 3', 'MySQL', '百度地图 GL'],
+      status: '毕业设计',
+      link: 'https://github.com/lqxhhbp/bi-ye-she-ji',
     },
     {
       title: '一个正在生长的想法',
@@ -29,7 +39,7 @@ export const site = {
       tags: ['Writing', 'Notes'],
       status: '长期更新',
     },
-  ],
+  ] satisfies Project[],
   principles: [
     {
       title: '先做真实有用的东西',
