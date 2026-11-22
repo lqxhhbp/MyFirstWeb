@@ -170,6 +170,13 @@
 - [已验证] `npm run format` 通过。
 - [已验证] `npm run lint` 通过。
 - [已验证] 使用 `VITE_BASE_PATH=/MyFirstWeb/` 执行 `npm run build` 通过。
+- [已验证] Gitee 仓库地址返回 HTTP 200，页面标题为“我的个人网页: 我的第一个个人网页”。
+- [已验证] GitHub Actions 工作流 `44997212104` 构建和部署成功。
+- [已验证] 公网入口 `https://lqxhhbp.github.io/MyFirstWeb/` 返回 HTTP 200，线上生产
+  JavaScript 同时包含 GitHub 仓库、Gitee 仓库和新 Gitee 地址。
+- 影响文件：`src/content/site.ts`、`src/views/HomeView.vue`、`src/views/ProjectsView.vue`、
+  `src/assets/main.css`、`README.md`、`PROJECT_LOG.md`、`package.json`、`package-lock.json`
+- Git 提交：`477b8bc content: add Gitee repository link`
 
 ### 2026-11-22：毕业设计双仓库入口
 
