@@ -20,8 +20,8 @@
 | GitHub 仓库 | <https://github.com/lqxhhbp/MyFirstWeb> |
 | 公网入口 | <https://lqxhhbp.github.io/MyFirstWeb/> |
 | 项目类型 | Vue 3 单页静态网站 |
-| 当前版本 | `0.1.1` |
-| 当前阶段 | GitHub Pages 已上线，个人资料和毕业设计项目已更新 |
+| 当前版本 | `0.1.2` |
+| 当前阶段 | GitHub Pages 已上线，毕业设计项目增加 GitHub / Gitee 双仓库入口 |
 | 初始源码提交 | `45262b3df224a301c0e049818eb5a04aba24f358` |
 | 部署状态 | GitHub Pages 部署成功 |
 | 默认分支 | `main` |
@@ -49,6 +49,7 @@
 - [完成] 首页和关于页显示个人姓名“两千响豪华鞭炮”。
 - [完成] 首页、关于页和页脚显示两个可点击邮箱。
 - [完成] 首张项目卡片展示“校园快递点导航与空闲度查询平台”及 GitHub 仓库链接。
+- [完成] 毕业设计项目首页卡片和项目列表页增加并排的 Gitee 仓库入口。
 
 ## 技术栈
 
@@ -166,6 +167,17 @@
   <https://github.com/lqxhhbp/bi-ye-she-ji>。
 - [完成] 同步更新项目列表页，保证首页和项目页展示一致。
 - [记录] 初次类型检查发现 `satisfies Project[]` 被误加到“工作原则”数组，已移动到项目数组。
+- [已验证] `npm run format` 通过。
+- [已验证] `npm run lint` 通过。
+- [已验证] 使用 `VITE_BASE_PATH=/MyFirstWeb/` 执行 `npm run build` 通过。
+
+### 2026-11-22：毕业设计双仓库入口
+
+- [完成] 在项目数据中增加可选 `giteeLink` 字段，保留现有 GitHub 链接字段不变。
+- [完成] 在毕业设计首页卡片和项目列表页的 GitHub 仓库入口旁增加 Gitee 仓库入口。
+- [完成] 使用统一的 `.project-card__links` 容器让两个仓库入口并排展示，窄屏时允许自动换行。
+- [完成] 将 Gitee 仓库地址设置为
+  <https://gitee.com/cakt310783137/my-personal-website>。
 - [已验证] `npm run format` 通过。
 - [已验证] `npm run lint` 通过。
 - [已验证] 使用 `VITE_BASE_PATH=/MyFirstWeb/` 执行 `npm run build` 通过。
@@ -317,6 +329,7 @@ git config user.email "你的 GitHub 邮箱"
 | --- | --- | --- | --- |
 | `0.1.0` | 2026-11-22 | GitHub Pages 已上线 | 完成 Vue 3 页面、响应式样式、部署研究、GitHub 初始化发布和自动部署 |
 | `0.1.1` | 2026-11-22 | 内容已更新 | 更新个人姓名、双邮箱和毕业设计项目展示 |
+| `0.1.2` | 2026-11-22 | 内容已更新 | 毕业设计项目增加并排的 GitHub / Gitee 仓库入口 |
 
 初始内容提交：
 [`45262b3df224a301c0e049818eb5a04aba24f358`](https://github.com/lqxhhbp/MyFirstWeb/commit/45262b3df224a301c0e049818eb5a04aba24f358)

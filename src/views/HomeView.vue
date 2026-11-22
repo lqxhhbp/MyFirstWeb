@@ -66,16 +66,28 @@ const featuredProjects = site.projects.slice(0, 2)
           </div>
           <h3>{{ project.title }}</h3>
           <p>{{ project.description }}</p>
-          <a
-            v-if="project.link"
-            class="project-card__link"
-            :href="project.link"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub 仓库
-            <span aria-hidden="true">↗</span>
-          </a>
+          <div v-if="project.link || project.giteeLink" class="project-card__links">
+            <a
+              v-if="project.link"
+              class="project-card__link"
+              :href="project.link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub 仓库
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              v-if="project.giteeLink"
+              class="project-card__link"
+              :href="project.giteeLink"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Gitee 仓库
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
           <ul class="tag-list" aria-label="项目标签">
             <li v-for="tag in project.tags" :key="tag">{{ tag }}</li>
           </ul>

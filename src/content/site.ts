@@ -4,6 +4,7 @@ export interface Project {
   tags: string[]
   status: string
   link?: string
+  giteeLink?: string
 }
 
 export const site = {
@@ -25,6 +26,7 @@ export const site = {
       tags: ['Spring Boot 3', 'Vue 3', 'MySQL', '百度地图 GL'],
       status: '毕业设计',
       link: 'https://github.com/lqxhhbp/bi-ye-she-ji',
+      giteeLink: 'https://gitee.com/cakt310783137/my-personal-website',
     },
     {
       title: '一个正在生长的想法',

@@ -292,12 +292,19 @@
   line-height: 1.7;
 }
 
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+  margin-top: 18px;
+}
+
 .project-card__link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   width: fit-content;
-  margin-top: 18px;
   color: var(--color-accent-dark);
   font-size: 0.82rem;
   font-weight: 700;
